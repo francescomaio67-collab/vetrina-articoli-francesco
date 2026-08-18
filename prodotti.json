@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "titolo": "test",
+        "categoria": "Tecnologia",
+        "linkAmazon": "https://amzn.to/3SGDVLe",
+        "linkImmagine": "https://m.media-amazon.com/images/I/61LJulyuWBL._AC_SL1500_.jpg",
+        "descrizione": "test"
+    }
+]
