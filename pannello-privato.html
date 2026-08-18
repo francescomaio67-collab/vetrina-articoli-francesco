@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestione Vetrina con File</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        body { background: #0f172a; color: #f8fafc; font-family: sans-serif; padding: 2rem; }
+        .panel { max-width: 800px; margin: 0 auto; background: #1e293b; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h1 { margin-bottom: 1.5rem; font-size: 1.8rem; border-bottom: 2px solid #334155; padding-bottom: 0.5rem; }
+        .form-group { margin-bottom: 1.25rem; }
+        label { display: block; margin-bottom: 0.4rem; font-size: 0.9rem; color: #94a3b8; font-weight: 600; }
+        input, select, textarea { width: 100%; padding: 0.65rem; background: #0f172a; color: white; border: 1px solid #334155; border-radius: 6px; box-sizing: border-box; font-family: inherit; }
+        input:focus, select:focus, textarea:focus { border-color: #3b82f6; outline: none; }
+        button { padding: 0.75rem 1.5rem; background: #3b82f6; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #2563eb; }
+        .btn-danger { background: #ef4444; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-edit { background: #f59e0b; color: #0b0f17; margin-right: 0.5rem; }
+        .btn-edit:hover { background: #d97706; }
+        .product-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: #0f172a; margin-top: 0.5rem; border-radius: 6px; border: 1px solid #334155; }
+        .product-actions { display: flex; gap: 0.5rem; }
+        textarea.code-box { font-family: monospace; background: #000; color: #10b981; height: 150px; width: 100%; margin-top: 0.5rem; padding: 0.5rem; border-radius: 6px; border: 1px solid #334155; }
+        h3 { margin-top: 2rem; font-size: 1.2rem; }
+        
+        /* Nasconde il pannello di controllo principale all'avvio */
+        #mainPanel { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- Blocco di Accesso con Password -->
+    <div id="authBlock" class="panel">
+        <h1>🔒 Accesso Vetrina Privata</h1>
+        <div class="form-group">
+            <label>Inserisci password...</label>
+            <input type="password" id="passwordInput" placeholder="Password">
+        </div>
+        <button onclick="checkPassword()">Sblocca</button>
+    </div>
+
+    <!-- Pannello di Gestione Principale -->
+    <div id="mainPanel" class="panel">
+        <h1>⚡ Gestione Catalogo Permanente</h1>
+        
+        <div class="form-group">
+            <label>Titolo Prodotto</label>
+            <input type="text" id="titolo" placeholder="Titolo Prodotto">
+        </div>
+        <div class="form-group">
+            <label>Categoria</label>
+            <select id="categoria">
+                <option value="Tecnologia">📱 Tecnologia</option>
+                <option value="Casa & Cucina">🏠 Casa & Cucina</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Link Amazon</label>
+            <input type="text" id="linkAmazon" placeholder="Link Amazon con tuo ID">
+        </div>
+        <div class="form-group">
+            <label>Link Immagine</label>
+            <input type="text" id="linkImmagine" placeholder="Link Immagine (Es. link di GitHub)">
+        </div>
+        <div class="form-group">
+            <label>Descrizione</label>
+            <textarea id="descrizione" placeholder="Descrizione prodotto" rows="3"></textarea>
+        </div>
+        
+        <button id="btnSalva" onclick="aggiungiProdotto()">➕ Inserisci in Lista</button>
+        
+        <h3 style="color: #60a5fa;">1. Catalogo temporaneo sul tuo PC:</h3>
+        <div id="listaProdotti"></div>
+
+        <h3 style="color:#f59e0b;">2. Copia questo testo e incollalo su GitHub nel file prodotti.json:</h3>
+        <textarea class="code-box" id="outputJson" readonly placeholder="Il testo per GitHub apparirà qui..."></textarea>
+    </div>
+
+    <script>
+        let indiceModifica = -1;
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const reversedInput = input.split('').reverse().join('');
+            
+            if(reversedInput === '6202ocsecnarf') { 
+                document.getElementById('authBlock').style.display = 'none';
+                document.getElementById('mainPanel').style.display = 'block';
+                aggiornaPannello();
+            } else { 
+                alert('Password errata!'); 
+            }
+        }
+
+        function aggiungiProdotto() {
+            const t = document.getElementById('titolo').value;
+            const c = document.getElementById('categoria').value;
+            const lA = document.getElementById('linkAmazon').value;
+            const lI = document.getElementById('linkImmagine').value;
+            const d = document.getElementById('descrizione').value;
+
+            if(!t || !lA || !lI || !d) {
+                alert('Tutti i campi sono obbligatori.');
+                return;
+            }
+
+            let p = { titolo: t, categoria: c, linkAmazon: lA, linkImmagine: lI, descrizione: d };
+            let pr = JSON.parse(localStorage.getItem('vetrina_file_db')) || [];
+            
+            if(indiceModifica === -1) {
+                pr.push(p);
+            } else {
+                pr[indiceModifica] = p;
+                indiceModifica = -1;
+                document.getElementById('btnSalva').innerText = "➕ Inserisci in Lista";
+            }
+            
+            localStorage.setItem('vetrina_file_db', JSON.stringify(pr));
+            
+            document.getElementById('titolo').value = '';
+            document.getElementById('linkAmazon').value = '';
+            document.getElementById('linkImmagine').value = '';
+            document.getElementById('descrizione').value = '';
+            
+            aggiornaPannello();
+        }
+
+        function avviaModifica(index) {
+            let pr = JSON.parse(localStorage.getItem('vetrina_file_db')) || [];
+            let p = pr[index];
+            
+            document.getElementById('titolo').value = p.titolo;
+            document.getElementById('categoria').value = p.categoria;
+            document.getElementById('linkAmazon').value = p.linkAmazon;
+            document.getElementById('linkImmagine').value = p.linkImmagine;
+            document.getElementById('descrizione').value = p.descrizione;
+            
+            indiceModifica = index;
+            document.getElementById('btnSalva').innerText = "💾 Aggiorna Prodotto";
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function eliminaProdotto(index) {
+            if(confirm('Sei sicuro di voler eliminare questo prodotto?')) {
+                let pr = JSON.parse(localStorage.getItem('vetrina_file_db')) || [];
+                pr.splice(index, 1);
+                localStorage.setItem('vetrina_file_db', JSON.stringify(pr));
+                if(indiceModifica === index) {
+                    indiceModifica = -1;
+                    document.getElementById('btnSalva').innerText = "➕ Inserisci in Lista";
+                }
+                aggiornaPannello();
+            }
+        }
+
+        function aggiornaPannello() {
+            let pr = JSON.parse(localStorage.getItem('vetrina_file_db')) || [];
+            const container = document.getElementById('listaProdotti');
+            
+            if(pr.length === 0) {
+                container.innerHTML = '<p style="color: #94a3b8; font-style: italic;">Nessun prodotto presente.</p>';
+                document.getElementById('outputJson').value = '[]';
+                return;
+            }
+
+            container.innerHTML = pr.map((p, index) => `
+                <div class="product-row">
+                    <div><b>${p.titolo}</b> <br><small style="color:#94a3b8">${p.categoria}</small></div>
+                    <div class="product-actions">
+                        <button class="btn-edit" onclick="avviaModifica(${index})">✏️ Modifica</button>
+                        <button class="btn-danger" onclick="eliminaProdotto(${index})">🗑 Elimina</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('outputJson').value = JSON.stringify(pr, null, 4);
+        }
+    </script>
+</body>
+</html>
