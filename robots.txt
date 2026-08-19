@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://francescomaio67-collab.github.io/vetrina-articoli-francesco/sitemap-v2.xml
