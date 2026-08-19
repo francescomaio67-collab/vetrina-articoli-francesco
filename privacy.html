@@ -3,40 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy & Cookie Policy - Le Scelte di Francesco Maio</title>
+    <title>Privacy & Cookie Policy · Le Scelte di Francesco Maio</title>
+    <meta name="description" content="Informativa Privacy e Cookie Policy del sito Le Scelte di Francesco Maio. Conformità GDPR e trasparenza sul Programma Affiliazione Amazon.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://francescomaio67-collab.github.io/vetrina-articoli-francesco/privacy.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23f59e0b'/%3E%3Ctext x='50' y='68' font-size='55' font-family='Arial, sans-serif' font-weight='800' fill='%230b0f17' text-anchor='middle'%3EFM%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;display=swap" rel="stylesheet">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        h1 { color: #111; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #222; margin-top: 30px; }
-        p, li { color: #555; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #0066cc; text-decoration: none; }
-        .back-link:hover { text-decoration: underline; }
+        :root {
+            --bg: #0b0f17;
+            --bg-card: #131b28;
+            --border: #223048;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent: #f59e0b;
+            --primary: #3b82f6;
+            --radius: 14px;
+            --radius-sm: 8px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.65;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            width: 100%;
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem 3.5rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.75rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--text); }
+        header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+        h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+        .meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+        p, li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.85rem;
+        }
+        ul {
+            padding-left: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        li { margin-bottom: 0.45rem; }
+        strong { color: var(--text); font-weight: 600; }
+        a {
+            color: #60a5fa;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        a:hover { color: #93c5fd; }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.15rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+        .card p:last-child { margin-bottom: 0; }
+        .badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+        }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Torna alla Vetrina</a>
 
-    <a href="index.html" class="back-link">← Torna alla Vetrina</a>
-    
-    <h1>Informativa Privacy e Cookie Policy</h1>
-    <p><strong>Ultimo aggiornamento:</strong> 17 Agosto 2026</p>
-    <p>Benvenuto su "Le Scelte di Francesco Maio". La trasparenza è fondamentale per noi. Questa informativa spiega come vengono gestiti i dati su questo sito web in conformità con il Regolamento UE 2016/679 (GDPR).</p>
+        <header>
+            <h1>Informativa Privacy e Cookie Policy</h1>
+            <p class="meta">Ultimo aggiornamento: 19 agosto 2026</p>
+        </header>
 
-    <h2>1. Titolare del Trattamento dei Dati</h2>
-    <p>Il Titolare del trattamento è <strong>Francesco Maio</strong>. Per qualsiasi domanda relativa alla privacy, puoi fare riferimento ai contatti presenti sulla piattaforma.</p>
+        <p>
+            Benvenuto su <strong>Le Scelte di Francesco Maio</strong>.
+            La presente informativa descrive come vengono trattati i dati in relazione a questo sito web,
+            in conformità al Regolamento (UE) 2016/679 (GDPR) e alla normativa italiana vigente.
+        </p>
 
-    <h2>2. Tipologia di Dati Trattati e Cookie</h2>
-    <p>Questo sito web è una piattaforma statica che <strong>non raccoglie, non memorizza e non tratta dati personali identificativi</strong> degli utenti (come nomi, indirizzi email, numeri di telefono o indirizzi IP su server proprietari).</p>
-    <ul>
-        <li><strong>Cookie Tecnici e localStorage:</strong> Il sito utilizza la tecnologia <em>localStorage</em> del browser esclusivamente per scopi tecnici necessari al funzionamento dell'Area Gestione (salvataggio del catalogo prodotti e configurazioni). Questi dati risiedono solo sul dispositivo dell'utente e non vengono trasmessi a terzi.</li>
-        <li><strong>Google Fonts:</strong> Il sito ottimizza la propria estetica caricando caratteri tipografici da Google Fonts. Questa interazione potrebbe comportare la trasmissione di dati tecnici di navigazione a Google, gestiti secondo la loro privacy policy.</li>
-    </ul>
+        <h2>1. Titolare del trattamento</h2>
+        <p>
+            Il Titolare del trattamento è <strong>Francesco Maio</strong>.
+        </p>
+        <div class="card">
+            <p>
+                Per qualsiasi richiesta relativa alla privacy o all’esercizio dei tuoi diritti puoi scrivere a:<br>
+                <strong>Email:</strong> <a href="mailto:francescomaio67@gmail.com">francescomaio67@gmail.com</a>
+            </p>
+            <p style="font-size: 0.82rem; margin-top: 0.6rem; margin-bottom: 0;">
+                (Sostituisci questo indirizzo con quello che preferisci utilizzare per le comunicazioni privacy, se diverso.)
+            </p>
+        </div>
 
-    <h2>3. Programma di Affiliazione Amazon e Cookie di Terze Parti</h2>
-    <p>Questo sito partecipa al <strong>Programma Affiliazione Amazon Europe S.à r.l.</strong>, un programma di affiliazione pubblicitaria progettato per fornire ai siti un mezzo per guadagnare commissioni pubblicitarie sponsorizzando e inserendo link al sito Amazon.it [1.1].</p>
-    <p>In qualità di Affiliato Amazon, il Titolare percepisce un guadagno per ciascun acquisto idoneo [1.1]. Quando l'utente clicca su un link di prodotto, viene reindirizzato su Amazon.it tramite un codice di tracciamento (ID Affiliato). Durante questa operazione, Amazon può inserire cookie nel browser del visitatore per monitorare la provenienza del clic e attribuire correttamente le commissioni in caso di acquisto, in piena conformità con l'Informativa sulla Privacy di Amazon.it [1.1].</p>
+        <h2>2. Tipologia di dati trattati</h2>
+        <p>
+            Questo sito è una piattaforma statica. <strong>Non raccoglie, non memorizza e non tratta
+            dati personali identificativi</strong> degli utenti (nome, email, telefono, ecc.) su server
+            di proprietà del Titolare.
+        </p>
+        <ul>
+            <li>
+                <strong>Dati tecnici di navigazione</strong> —
+                Come qualsiasi sito web, il provider di hosting (es. GitHub Pages) e i servizi esterni
+                possono ricevere automaticamente dati tecnici quali indirizzo IP, tipo di browser,
+                sistema operativo e data/ora della visita. Questi dati non sono utilizzati dal Titolare
+                per identificare gli utenti.
+            </li>
+            <li>
+                <strong>localStorage (Area Gestione)</strong> —
+                Il sito utilizza la tecnologia <em>localStorage</em> del browser esclusivamente per
+                scopi tecnici necessari al funzionamento dell’Area Gestione (salvataggio del catalogo
+                prodotti, PIN di accesso e tag Amazon). Questi dati restano solo sul dispositivo
+                dell’utente e non vengono trasmessi a terzi dal sito.
+            </li>
+            <li>
+                <strong>Google Fonts</strong> —
+                Il sito carica caratteri tipografici da Google Fonts. Questa interazione può comportare
+                la trasmissione di dati tecnici di navigazione a Google LLC, trattati secondo la
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy di Google</a>.
+            </li>
+        </ul>
 
-    <h2>4. Diritti degli Interessati</h2>
-    <p>Poiché il sito non conserva dati personali su server o database, l'utente può esercitare il proprio diritto all'oblio in totale autonomia semplicemente cancellando i dati di navigazione e i cookie direttamente dalle impostazioni del proprio browser in qualsiasi momento.</p>
+        <h2>3. Base giuridica del trattamento</h2>
+        <p>
+            Il trattamento dei dati tecnici e l’uso di localStorage/cookie tecnici si basano su:
+        </p>
+        <ul>
+            <li>
+                <strong>Necessità tecnica</strong> (art. 6, par. 1, lett. b e f GDPR) —
+                per consentire il corretto funzionamento del sito e dell’Area Gestione;
+            </li>
+            <li>
+                <strong>Legittimo interesse</strong> del Titolare (art. 6, par. 1, lett. f GDPR) —
+                a garantire la sicurezza e l’usabilità della piattaforma, senza pregiudicare i diritti
+                e le libertà degli interessati.
+            </li>
+        </ul>
+        <p>
+            Per i cookie e i dati trattati da Amazon e Google si applicano le rispettive informative
+            e basi giuridiche di tali soggetti.
+        </p>
 
+        <h2>4. Programma di Affiliazione Amazon e cookie di terze parti</h2>
+        <div class="card">
+            <span class="badge">AFFILIAZIONE AMAZON</span>
+            <p>
+                Questo sito partecipa al <strong>Programma Affiliazione Amazon Europe S.à r.l.</strong>,
+                un programma pubblicitario che consente di percepire una commissione pubblicitaria
+                pubblicando link verso Amazon.it.
+            </p>
+            <p>
+                In qualità di Affiliato Amazon, il Titolare riceve un guadagno dagli acquisti idonei
+                effettuati tramite i link presenti sul sito.
+            </p>
+            <p>
+                Quando clicchi su un link di prodotto, vieni reindirizzato su Amazon.it tramite un
+                codice di tracciamento (ID Affiliato). Durante questa operazione Amazon può inserire
+                cookie nel tuo browser per monitorare la provenienza del clic e attribuire correttamente
+                le commissioni in caso di acquisto, in conformità con l’
+                <a href="https://www.amazon.it/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener noreferrer">Informativa sulla Privacy di Amazon.it</a>.
+            </p>
+            <p style="margin-bottom: 0;">
+                Il Titolare non ha accesso diretto ai dati personali eventualmente trattati da Amazon
+                in relazione a tali cookie.
+            </p>
+        </div>
+
+        <h2>5. Periodo di conservazione</h2>
+        <p>
+            I dati presenti in localStorage restano sul tuo dispositivo finché non li cancelli
+            manualmente (tramite le impostazioni del browser o la cancellazione dei dati del sito)
+            oppure finché non utilizzi le funzioni di reset dell’Area Gestione.
+        </p>
+        <p>
+            I dati tecnici eventualmente registrati dai provider di hosting o dai servizi di terze parti
+            sono conservati secondo le rispettive policy e per i tempi tecnici necessari.
+        </p>
+
+        <h2>6. Diritti degli interessati</h2>
+        <p>
+            In qualità di interessato hai il diritto di:
+        </p>
+        <ul>
+            <li>accedere ai dati che ti riguardano;</li>
+            <li>chiederne la rettifica o l’aggiornamento;</li>
+            <li>chiederne la cancellazione (diritto all’oblio);</li>
+            <li>limitare il trattamento;</li>
+            <li> opporti al trattamento basato sul legittimo interesse;</li>
+            <li>ricevere i dati in un formato strutturato (portabilità), ove applicabile.</li>
+        </ul>
+        <p>
+            Poiché questo sito non conserva dati personali identificativi su server propri,
+            puoi esercitare gran parte di questi diritti in autonomia cancellando i dati di
+            navigazione, i cookie e il localStorage dalle impostazioni del tuo browser.
+        </p>
+        <p>
+            Per qualsiasi altra richiesta puoi contattare il Titolare all’indirizzo email indicato
+            nella sezione 1. Riceverai riscontro entro i termini previsti dalla legge (di norma
+            30 giorni).
+        </p>
+
+        <h2>7. Reclamo all’Autorità di controllo</h2>
+        <p>
+            Se ritieni che il trattamento dei tuoi dati violi il GDPR, hai il diritto di proporre
+            reclamo all’Autorità Garante per la protezione dei dati personali:
+        </p>
+        <ul>
+            <li>Sito web: <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a></li>
+            <li>Indirizzo: Piazza Venezia 11, 00187 Roma</li>
+        </ul>
+
+        <h2>8. Modifiche alla presente informativa</h2>
+        <p>
+            Il Titolare si riserva di aggiornare questa informativa in qualsiasi momento.
+            La data di ultimo aggiornamento è indicata in alto. Ti invitiamo a consultare
+            periodicamente questa pagina.
+        </p>
+
+        <footer>
+            <p>© 2026 Le Scelte di Francesco Maio · <a href="index.html">Torna alla Vetrina</a></p>
+        </footer>
+    </div>
 </body>
 </html>
